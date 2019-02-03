@@ -7,7 +7,7 @@ const Movie = ({ title, poster, genres, rating, synopsis }) => {
     return (
         <div className="Movie">
             <div className="Movie__Columns">
-                <MoviePoster poster={poster} alt = {title} />
+                <MoviePoster poster={poster} explain = {title} />
             </div>
             <div className="Movie__Columns">
                 <h1>{title}</h1>
@@ -26,9 +26,9 @@ const Movie = ({ title, poster, genres, rating, synopsis }) => {
 }
 
 //image dumb component
-const MoviePoster = ({ poster, alt }) => {
+const MoviePoster = ({ poster, explain }) => {
     return (
-        <img src={poster} alt={alt} title = {alt} />
+        <img src={poster} alt={explain} title = {explain} />
     )
 }
 
@@ -49,7 +49,7 @@ Movie.propTypes = {
 
 MoviePoster.propTypes = {
     poster: PropTypes.string.isRequired,
-    alt : PropTypes.string.isRequired
+    explain : PropTypes.string.isRequired
 }
 
 MovieGenre.propTypes = {
