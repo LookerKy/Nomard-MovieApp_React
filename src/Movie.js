@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Movie.css';
 
+//movie card component
 class Movie extends Component {
     render () {
         return (
@@ -12,10 +13,11 @@ class Movie extends Component {
     }
 }
 
+//image component
 class MoviePoster extends Component {
     render () {
         return (
-            <img src='http://ph.spotvnews.co.kr/news/photo/201809/237166_290409_1150.jpg'/>
+            <img src='http://ph.spotvnews.co.kr/news/photo/201809/237166_290409_1150.jpg' alt ='she is good'/>
         );
     }
 }
