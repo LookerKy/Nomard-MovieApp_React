@@ -21,7 +21,7 @@ const Movie = ({ title, poster, genres, rating, synopsis }) => {
                 <div className="Movie__Synopsis">
                     <LinesEllipsis
                         text={synopsis}
-                        maxLine='3'
+                        maxLine='4'
                         ellipsis='...'
                         trimRight
                         basedOn='letters'
