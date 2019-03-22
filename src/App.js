@@ -5,9 +5,10 @@ import Movie from './Movie';
 
 
 /*component 의 life cycle 
-  render : componentWillMount() --> render() --> componentDidMount()
+  render : componentWillMount() 없어짐 --> render() --> componentDidMount()
 
-  update : componentWillReciveProps() --> shouldComponentUpdate() --> componentWillUpdate() --> render() --> componentDidUpdate() 
+  update : static getDerivedStateFromProps() --> shouldComponentUpdate() -->                            componentWillUpdate()없어짐(  대체됨) 
+  render() --> getSnapshotBeforeUpdate() --> componentDidUpdate() 
 */
 
 class App extends Component {
