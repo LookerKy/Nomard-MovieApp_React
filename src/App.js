@@ -1,8 +1,7 @@
 //movie list component
-import React, { Component } from 'react';
-import './App.css';
-import Movie from './Movie';
-
+import React, { Component } from "react";
+import "./App.css";
+import Movie from "./Movie";
 
 /*component 의 life cycle 
   render : componentWillMount() 없어짐 --> render() --> componentDidMount()
@@ -73,42 +72,46 @@ class App extends Component {
       })
     }, 2000);
   }*/
-  state = {}
-  componentDidMount(){
+  state = {};
+  componentDidMount() {
     this._getMovie();
   }
 
   _getMovie = async () => {
     const movies = await this._callApi();
     this.setState({ movies });
-  }
+  };
 
   _callApi = () => {
-    return fetch('https://yts.am/api/v2/list_movies.json?sort_by=download_count')
-    .then(movieData => {return movieData.json()})
-    .then(json => json.data.movies)
-    .catch(err => console.log(err));
-  }
+    return fetch("https://yts.am/api/v2/list_movies.json?sort_by=download_count")
+      .then(movieData => {
+        return movieData.json();
+      })
+      .then(json => json.data.movies)
+      .catch(err => console.log(err));
+  };
 
   _renderMovies = () => {
     const movies = this.state.movies.map((movie, index) => {
-      return <Movie 
-      title = {`#${index+1} ${ movie.title_english}`} 
-      poster = {movie.medium_cover_image} 
-      key = {movie.id}
-      genres = {movie.genres}
-      rating = {movie.rating}
-      synopsis = {movie.synopsis}
-      />
-    })
+      return (
+        <Movie
+          title={`#${index + 1} ${movie.title_english}`}
+          poster={movie.medium_cover_image}
+          key={movie.id}
+          genres={movie.genres}
+          rating={movie.rating}
+          synopsis={movie.synopsis}
+        />
+      );
+    });
     return movies;
-  }
+  };
 
   render() {
-    const {movies} = this.state;
+    const { movies } = this.state;
     return (
       <div className={movies ? "App" : "App--loading"}>
-        {this.state.movies ? this._renderMovies() : 'Loading'}
+        {this.state.movies ? this._renderMovies() : "Loading"}
       </div>
     );
   }
